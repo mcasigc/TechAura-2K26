@@ -1,4 +1,4 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,25 +9,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Raleway:wght@400;500&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+/* ---------- THEME ---------- */
+:root{
+    --purple:#6a1b9a;
+    --purple-dark:#4a148c;
+    --purple-light:#ede7f6;
+    --yellow:#ffcc00;
+    --yellow-soft:#fff6cc;
+    --white:#ffffff;
+}
+
 /* ---------- Global ---------- */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-html{
-    scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{
-    font-family:'Poppins', sans-serif;
-    background:#ffffff;
+    font-family:'Poppins',sans-serif;
+    background:var(--white);
     color:#333;
 }
 
 /* ---------- Navbar ---------- */
 nav{
-    background: linear-gradient(135deg,#7b2ff7,#f107a3);
-    color:#fff;
+    background:linear-gradient(to right,var(--purple),var(--white));
     padding:15px 30px;
     position:fixed;
     width:100%;
@@ -39,203 +42,235 @@ nav{
     justify-content:space-between;
     align-items:center;
 }
-.logo{
-    font-weight:bold;
-    color:white;
+.logo1{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
+.logo1 img{height:40px;}
 .nav-links{
     list-style:none;
     display:flex;
 }
-.nav-links li{
-    margin-left:20px;
-}
+.nav-links li{margin-left:20px;}
 .nav-links a{
-    color:#fff;
     text-decoration:none;
+    color:#000;
+    font-weight:500;
 }
 .nav-links a:hover{
-    color:#ffcc00;
+    color:var(--purple);
+    border-bottom:2px solid var(--yellow);
 }
 .menu-icon{
     display:none;
     font-size:1.8rem;
     cursor:pointer;
 }
+.scroll-down{
+    margin-top:25px;
+    display:inline-block;
+}
 
 /* ---------- Home ---------- */
 #home{
-    height:100vh;
+    min-height:100vh;   /* instead of height */
+    padding-top:110px;  /* space for fixed navbar */
+    padding-bottom:80px;/* extra space at bottom */
+    
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:#fff;
-    background:linear-gradient(135deg,#7b2ff7,#f107a3);
-    animation:fadeIn 1.5s ease;
+    
+    background:linear-gradient(135deg,var(--purple),var(--white));
 }
 
-.event-date{
-    font-family:'Raleway',sans-serif;
-    letter-spacing:2px;
-    font-size:0.9rem;
-    opacity:0.85;
-    margin-bottom:10px;
-}
 
 .title{
     font-family:'Orbitron',sans-serif;
     font-size:3.6rem;
-    letter-spacing:3px;
-    animation:fadeDown 1.2s ease;
-    text-shadow: 0 0 15px #ff66cc, 0 0 25px #7b2ff7;
+    color:var(--purple-dark);
+    text-shadow:
+        0 0 10px rgba(255,204,0,0.4),
+        0 0 20px rgba(106,27,154,0.4);
 }
-
-.home-info{
-    font-family:'Raleway',sans-serif;
-    margin-top:8px;
-    font-size:0.9rem;
-    letter-spacing:1px;
-    animation:fadeUp 1.5s ease;
-}
-
 .register-btn{
     margin-top:25px;
     padding:12px 30px;
-    font-size:1rem;
     border:none;
     border-radius:30px;
+    background:linear-gradient(to right,var(--purple),var(--yellow));
     cursor:pointer;
-    background:#ff4d6d;
-    color:#fff;
-    transition:transform 0.3s, box-shadow 0.3s;
-    animation:fadeUp 1.8s ease;
 }
-
 .register-btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 20px #ff4d6d;
+    box-shadow:0 0 20px var(--yellow);
 }
 
-/* Countdown */
+/* ---------- Countdown ---------- */
 .countdown{
     display:flex;
-    gap:15px;
+    justify-content:center;
+    align-items:flex-start;
+    gap:14px;
     margin-top:30px;
-    font-family:'Poppins',sans-serif;
-    animation:fadeUp 2s ease;
 }
 
-.countdown div{
-    text-align:center;
+/* Each number block */
+.time-unit{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.countdown span{
+/* Numbers */
+.time-unit span{
+    font-size:2.3rem;
+    font-weight:700;
+    color:white;
+}
+
+/* Labels */
+.time-unit small{
+    font-size:0.75rem;
+    margin-top:4px;
+    color:white;
+    opacity:0.9;
+}
+
+/* Glowing dots */
+.dot{
     font-size:2rem;
-    font-weight:600;
-    display:block;
-    color:#fff;
+    margin-top:6px;
+    color:var(--white);
     text-shadow:
-        0 0 8px rgba(255,255,255,0.7),
-        0 0 15px rgba(255,20,147,0.8),
-        0 0 25px rgba(123,47,247,0.8);
+        0 0 6px var(--yellow),
+        0 0 12px rgba(238, 236, 230, 0.7);
 }
 
-.countdown small{
-    font-size:0.8rem;
-    opacity:0.8;
-}
 
-.colon{
-    font-size:2rem;
-    font-weight:600;
-    margin-top:-5px;
-    opacity:0.8;
-    animation:blink 1.2s infinite;
-}
 
-/* Scroll Down */
-.scroll-down{
-    margin-top:40px;
-    font-family:'Raleway',sans-serif;
-    text-decoration:none;
-    color:#fff;
-    font-size:0.95rem;
-    animation:fadeUp 2.2s ease;
-}
-
-.arrow{
-    display:block;
-    font-size:1.5rem;
-    animation:bounce 1.5s infinite;
-}
+/* ---------- Sections ---------- */
+section{padding:70px 20px;}
 
 /* ---------- Cards ---------- */
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:1fr;
     gap:20px;
 }
 .card{
-    background:#fff;
+    background:linear-gradient(to right,var(--white),var(--purple-light));
     padding:20px;
     border-radius:10px;
     box-shadow:0 6px 14px rgba(0,0,0,0.1);
-    text-align:center;
-    border-top:5px solid #ffcc00;
-    opacity:0;
-    transform:translateY(30px);
-    transition:all 0.6s ease;
+
+    /* 🔥 purple border moved to top */
+    border-top:4px solid var(--yellow);
 }
-.card.show{
-    opacity:1;
-    transform:translateY(0);
+.info-btn{
+    margin-top:10px;
+    padding:6px 14px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(to right,var(--purple),var(--yellow));
+    cursor:pointer;
+}
+
+/* ---------- RULES (ONLY TEXT STYLE CHANGED) ---------- */
+.rules{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.6s ease;
+    text-align:left;
+    margin-top:10px;
+}
+.rules.show{max-height:300px;}
+.rules ul{
+    padding-left:20px;
+    font-size:1.0rem;
+}
+
+/* 👉 Rules heading style */
+.rules-title{
+    font-weight:700;
+    font-size:1.15rem;
+    color:var(--purple-dark);
 }
 
 /* ---------- Schedule ---------- */
 .schedule-item{
-    background:linear-gradient(90deg,#f5e3ff,#ffd9f0);
-    padding:12px;
+    background:linear-gradient(
+        90deg,
+        var(--purple-light),
+        var(--yellow-soft)
+    );
+    padding:12px 15px;
     margin:10px 0;
-    border-left:5px solid #7b2ff7;
+    border-left:5px solid var(--purple);
     border-radius:6px;
-    opacity:0;
-    transform:translateY(30px);
-    transition:all 0.6s ease;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
-.schedule-item.show{
-    opacity:1;
-    transform:translateY(0);
+#schedule{
+    padding-top:40px;   /* adjust if needed */
 }
 
+#schedule h2{
+    margin-top:0;
+    margin-bottom:20px;
+}
+.schedule-item img{
+    vertical-align:middle;
+}
 /* ---------- Footer ---------- */
 footer{
-    background:#5a2d82;
-    color:#fff;
+    background:linear-gradient(to right,var(--purple-dark),var(--white));
     text-align:center;
     padding:15px;
+    border-top:4px solid var(--yellow);
 }
 
-/* ---------- Animations ---------- */
-@keyframes fadeDown{
-    from{opacity:0; transform:translateY(-30px);}
-    to{opacity:1; transform:translateY(0);}
+/* ---------- Mobile ---------- */
+@media(max-width:768px){
+    .menu-icon{display:block;}
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        background:linear-gradient(to bottom,var(--purple),var(--white));
+        position:absolute;
+        width:100%;
+        top:60px;
+        right:0;
+        text-align:center;
+    }
+    .nav-links li{margin:15px 0;}
+    .title{font-size:2.4rem;}
 }
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
+.location-box{
+    margin-top:20px;
+    padding:6px 16px;
+    border:2px solid rgba(255,255,255,0.6);
+    border-radius:25px;
+    background:rgba(255,255,255,0.15);
+    color:#fff;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:0.85rem;
+    margin-left:auto;
+    margin-right:auto;
+    transition:transform 0.3s, box-shadow 0.3s;
 }
-@keyframes bounce{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(8px);}
+.location-box:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 15px rgba(255,255,255,0.6);
 }
-@keyframes blink{
-    0%,50%,100%{opacity:1;}
-    25%,75%{opacity:0.2;}
-}
-
-/* ---------- About Section ---------- */
 #about{
     padding: 50px 20px;
     max-width:900px;
@@ -272,204 +307,55 @@ footer{
     text-align:center;
     vertical-align:top;
 }
-
-/* ---------- Mobile ---------- */
-@media(max-width:768px){
-    .nav-links{
-        position:absolute;
-        top:60px;
-        right:0;
-        background:linear-gradient(135deg,#7b2ff7,#f107a3);
-        width:100%;
-        flex-direction:column;
-        display:none;
-        text-align:center;
-    }
-    .nav-links li{
-        margin:15px 0;
-    }
-    .menu-icon{
-        display:block;
-    }
-    .title{
-        font-size:2.4rem;
-    }
-    #about{
-        padding:30px 15px;
-    }
-    #about h2{
-        font-size:1.4rem;
-    }
-    #about p{
-        font-size:0.95rem;
-    }
-    .chief-patrons img {
-        width:100px;
-    }
-}
-/* ---------- Navbar Logo Alignment ---------- */
-.logo1 {
-    display: flex;
-    align-items: center; /* vertically center image and text */
-    gap: 10px; /* space between logo image and text */
+.scroll-down{
+    margin-top:40px;
+    font-family:'Raleway',sans-serif;
+    text-decoration:none;
+    color:#fff;
+    font-size:0.95rem;
+    animation:fadeUp 2.2s ease;
 }
 
-.logo1 img {
-    height: 40px; /* adjust logo size */
-    width: auto;
+.arrow{
+    display:block;
+    font-size:1.5rem;
+    animation:bounce 1.5s infinite;
 }
 .brochure-btn{
     margin-top:15px;
     padding:12px 28px;
-    background:linear-gradient(135deg,#7b2ff7,#f107a3);
-    color:#fff;
+    background:linear-gradient(to right,var(--purple),var(--yellow));
+    color:#000;
     border:none;
     border-radius:25px;
     font-size:1rem;
+    font-weight:600;
     cursor:pointer;
     transition:transform 0.3s, box-shadow 0.3s;
 }
+
 .brochure-btn:hover{
     transform:scale(1.05);
-    box-shadow:0 0 15px #f107a3;
+    box-shadow:0 0 20px var(--yellow);
 }
-h3{
-    font-family:'Raleway',sans-serif;
-    font-style:italic;
-    font-size:1rem;
-}
-h4{
-    font-family:'Raleway',sans-serif;
-    font-size:1.1rem;
-    letter-spacing:2.5px;
-}
-object{
-    font-style:bold;
-}
-.location-box{
-    margin-top:20px;
-    padding:6px 16px;
-    border:2px solid rgba(255,255,255,0.6);
-    border-radius:25px;
-    background:rgba(255,255,255,0.15);
-    color:#fff;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    font-size:0.85rem;
-    margin-left:auto;
-    margin-right:auto;
-    transition:transform 0.3s, box-shadow 0.3s;
-}
-.location-box:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 15px rgba(255,255,255,0.6);
-}
-/* ---------- More Info Button ---------- */
-.info-btn{
-    margin-top:10px;
-    padding:6px 14px;
-    font-size:0.75rem;
-    border:none;
-    border-radius:15px;
-    background:linear-gradient(135deg,#7b2ff7,#f107a3);
-    color:#fff;
-    cursor:pointer;
-    transition:transform 0.3s, box-shadow 0.3s;
-}
-.info-btn:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 10px #f107a3;
+#schedule,
+#contact{
+    padding-top:30px;   /* reduce top space */
 }
 
-/* ---------- Rules Toggle ---------- */
-.rules{
-    max-height:0;
-    overflow:hidden;
-    text-align:left;
-    margin-top:10px;
-    transition:max-height 0.6s ease;
+#schedule h2,
+#contact h2{
+    margin-top:0;
 }
-.rules ul{
-    padding-left:18px;
-    font-size:0.85rem;
-}
-.rules.show{
-    max-height:300px;
-}
-
-.card{
-    background:#fff;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 6px 14px rgba(0,0,0,0.1);
+.card h4{
     text-align:center;
-    border-top:5px solid #ffcc00;
 }
-
-/* ? RULES ALIGNMENT FIX */
-.card ul{
-    margin-top:10px;
-    padding-left:20px;
-    text-align:left;
+.card p{
+    text-align:center;
 }
-.card ul li{
-    margin-bottom:6px;
-    line-height:1.5;
-}
-
-/* ---------- Schedule ---------- */
-.schedule-item{
-    background:linear-gradient(90deg,#f5e3ff,#ffd9f0);
-    padding:12px;
-    margin:10px 0;
-    border-left:5px solid #7b2ff7;
-    border-radius:6px;
-}
-.info-btn{
-    margin-top:10px;
-    padding:6px 14px;
-    font-size:0.75rem;
-    border:none;
-    border-radius:15px;
-    background:linear-gradient(135deg,#7b2ff7,#f107a3);
-    color:#fff;
-    cursor:pointer;
-    transition:transform 0.3s, box-shadow 0.3s;
-}
-.info-btn:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 10px #f107a3;
-}
-
-/* Hidden Rules Section */
-.rules{
-    max-height:0;
-    overflow:hidden;
-    text-align:left;
-    margin-top:10px;
-    transition:max-height 0.6s ease;
-}
-
-.rules ul{
-    padding-left:18px;
-    font-size:0.85rem;
-}
-
-/* When rules section is visible */
-.rules.show{
-    max-height:300px;
-}
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-/* FORCE EVENTS ONE BELOW ANOTHER */
-#events .cards{
-    grid-template-columns: 1fr;
+.card .info-btn{
+    display:block;
+    margin:10px auto 0 auto;
 }
 
 </style>
@@ -477,66 +363,62 @@ object{
 
 <body onload="scrollToHome()">
 
-<!-- ---------- Navbar ---------- -->
 <nav>
-    <div class="nav-container">
-        <div class="logo1">
-    <img src="https://sigc.edu/conference/images/logo.png" alt="College Logo">
-    <b>SHRIMATI INDIRA GANDHI COLLEGE</b>
-</div>
-
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home" onclick="closeMenu()">Home</a></li>
-            <li><a href="#about" onclick="closeMenu()">About</a></li>
-            <li><a href="#events" onclick="closeMenu()">Events</a></li>
-            <li><a href="#schedule" onclick="closeMenu()">Schedule</a></li>
-            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-        </ul>
+<div class="nav-container">
+    <div class="logo1">
+        <img src="https://sigc.edu/conference/images/logo.png">
+        <b style="color:white;">SHRIMATI INDIRA GANDHI COLLEGE</b>
     </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
 </nav>
-<!-- ---------- Home Section ---------- -->
+
 <section id="home">
-<br>
-    <p class="event-date">20<sup>th</sup> January 2026</p>
-    <h1 class="title">TECHAURA 2K26</h1>
-    <h3> Compete - Collaborate - Create</h3>
-    <h4><br> Intercollegiate Symposium </h4>
-    <p class="home-info"><b>Organized By</b><br> <br>DEPARTMENT OF COMPUTER APPLICATIONS<br>(AICTE Approved)</p>
-    <button class="register-btn" onclick="register()">Register Now</button>
-    <div class="location-box" onclick="location.href='#contact'">
+<p  style="color:white;">20<sup>th</sup> January 2026</p>
+<h1 class="title">TECHAURA 2K26</h1>
+<h3  style="color:white;"><i>Compete - Collaborate - Create</i></h3>
+<h4 style="color:white;"><br> Intercollegiate Symposium </h4>
+<p class="home-info"  style="color:white;"><b>Organized By</b><br> <br>DEPARTMENT OF COMPUTER APPLICATIONS<br>(AICTE Approved)</p>
+<button class="register-btn" onclick="register()">Register Now</button>
+<div class="location-box" onclick="location.href='#contact'">
     <img src="https://static.vecteezy.com/system/resources/previews/058/072/319/non_2x/google-maps-app-icon-on-transparent-background-free-png.png"
          alt="Google Maps"
          style="width:30px; height:;vertical-align:middle; margin-right:8px;">
     College Campus
 </div>
-
-
-
-    <div class="countdown">
-        <div>
-            <span id="days">00</span>
-            <small>Days</small>
-        </div>
-        <span class="colon">:</span>
-        <div>
-            <span id="hours">00</span>
-            <small>Hours</small>
-        </div>
-        <span class="colon">:</span>
-        <div>
-            <span id="mins">00</span>
-            <small>Mins</small>
-        </div>
+<div class="countdown">
+    <div class="time-unit">
+        <span id="days">11</span>
+        <small>Days</small>
     </div>
 
+    <span class="dot">:</span>
+
+    <div class="time-unit">
+        <span id="hours">14</span>
+        <small>Hours</small>
+    </div>
+
+    <span class="dot">:</span>
+
+    <div class="time-unit">
+        <span id="mins">19</span>
+        <small>Mins</small>
+    </div>
+</div>
+
+
+
 <a href="#about" class="scroll-down">Explore More ▼</a>
-
-
 </section>
 
-
-<!-- ---------- About Section ---------- -->
 <section id="about">
     <h2>About the College</h2>
     <p>
@@ -550,46 +432,46 @@ object{
 
     <h2>CHIEF PATRONS</h2>
     <div class="chief-patrons">
-        <div>
+        <div align="center">
             <img src="https://sigc.edu/conference/images/secretary.jpg" alt="Dr.K. Meena,Ph.D.,">
             <br><b>Dr.K. Meena,Ph.D.,</b><br>Secretary
         </div>
-        <div>
+        <div align="center">
             <img src="https://sigc.edu/conference/images/ceo2.jpg" alt="Shri K.Chandrasekharan M.S.,">
             <br><b>Shri K.Chandrasekharan M.S.,</b><br>Chief Executive Officer
         </div>
-        <div>
+        <div align="center">
             <img src="https://sigc.edu/conference/images/aparna.jpg" alt="Smt.S.Aparna M.B.A., M.Phil.,">
             <br><b>Smt.S.Aparna M.B.A., M.Phil.,</b><br>Director
         </div>
     </div>
     <h2>CO - PATRON</h2>
     <div class="chief-patrons">
-        <div>
+        <div align="center">
             <img src="https://www.sigc.edu/images/gajalakshmi-2.jpg" alt="Dr. P. Gajalakshmi Ph.D.">
             <br><b>Dr. P. Gajalakshmi Ph.D.</b><br>Principal
         </div>
     </div>
     <h2>CONVENOR</h2>
-    <div class="chief-patrons">
+    <div class="chief-patrons" align="center">
         <div style="text-align:center;">
             <img src="https://sigc.edu/conference/images/Rethinavalli.jpg" alt="Dr.S.RETHINAVATHI,Ph.D.,">
-            <br><b>Dr. S. RETHINAVATHI Ph.D.,</b><br>Academic Director, Dept. of Computer Applications(AICTE Approved)
+            <br><b>Dr. S. RETHINAVATHI Ph.D.,</b><br>Academic Director,<br>Dept. of Computer Applications(AICTE Approved)
         </div>
     </div>
 </section>
 
-<!-- ---------- Events Section ---------- -->
+
 <section id="events">
-    <h2 style="text-align:center;">Events</h2>
+    <h2 style="text-align:center;">EVENTS</h2>
     <br>
-    <h3 style="color:#5a2d82;text-align:center;">Technical Events</h3><br>
+    <h2 style="color:#5a2d82;text-align:center;">Technical Events</h2><br>
        <div class="cards">
         <div class="card">
     <h4>Hack-a-Fun (Ideathon)</h4>
 <p>Participants per team: 3</p>
     <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-    <div class="rules"><p><br>Rules:</p>
+    <div class="rules"><p><br><b>Rules:</b></p>
         <ul>
 		<li>Each team must consist of exactly 3 members.</li>
                 <li>Problem statements based on SIH and SDG.</li>
@@ -601,13 +483,12 @@ object{
         </ul>
     </div>
 </div>
-    <br><br>
 
 <div class="card">
 <h4>Error X Innovate</h4>
 <p>Individual Event</p>
 <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-<div class="rules"><p><br>Rules:</p>
+<div class="rules"><p><br><b>Rules:</b></p>
 <ul>
 <li>This is an individual participation event.</li>
 <li>Participants will be given code with errors (syntax/logical).</li>
@@ -619,13 +500,13 @@ object{
 </ul>
 </div>
 </div>
-<br><br>
+
 
 <div class="card">
 <h4>Technical Quiz</h4>
 <p>Participants per team: 2</p>
 <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-<div class="rules"><p><br>Rules:</p>
+<div class="rules"><p><br><b>Rules:</b></p>
 <ul>
 <li>Each team must have 2 participants only.</li>
 <li>The quiz consists of multiple rounds (MCQs, rapid fire, etc.).</li>
@@ -636,14 +517,13 @@ object{
 </ul>
 </div>
 </div>
-<br><br>
 
 
 <div class="card">
 <h4>Logo Creation (ICONIX) - Using Coding</h4>
 <p>Individual Event</p>
 <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-<div class="rules"><p><br>Rules:</p>
+<div class="rules"><p><br><b>Rules:</b></p>
 <ul>
 <li>This is an individual event..</li>
 <li>Logos must be created only using code (HTML/CSS, SVG, Python, etc.).</li>
@@ -655,16 +535,14 @@ object{
 </ul>
 </div>
 </div>
-<br><br>
-
-
-    <h3 style="color:#5a2d82;text-align:center;">Non - Technical Events</h3><br>
+<br>
+   <h2 style="color:#5a2d82;text-align:center;">Non - Technical Events</h2><br>
        <div class="cards">
         <div class="card">
     <h4>Poster Making (Canva / Figma)</h4>
 <p>Individual Event</p>
     <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-    <div class="rules"><p><br>Rules:</p>
+    <div class="rules"><p><br><b>Rules:</b></p>
         <ul>
 		<li>Posters must be created only using Canva or Figma.</li>
                 <li>Theme will be announced on the spot.</li>
@@ -675,13 +553,13 @@ object{
         </ul>
     </div>
 </div>
-    <br><br>
+
 
 <div class="card">
 <h4>Sight on Site</h4>
 <p>Individual Event</p>
 <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-<div class="rules"><p><br>Rules:</p>
+<div class="rules"><p><br><b>Rules:</b></p>
 <ul>
 <li>Participants will observe a given spot/object.</li>
 <li>Based on observation, they must speak for few minutes.</li>
@@ -692,13 +570,12 @@ object{
 </ul>
 </div>
 </div>
-<br><br>
 
 <div class="card">
 <h4>Connection</h4>
 <p>Participants per team: 2</p>
 <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-<div class="rules"><p><br>Rules:</p>
+<div class="rules"><p><br><b>Rules:</b></p>
 <ul>
 <li>Participants must identify the connection between given clues/images.</li>
 <li>No external help is allowed.</li>
@@ -707,26 +584,24 @@ object{
 </ul>
 </div>
 </div>
-<br><br>
-
 
 <div class="card">
 <h4>IPL Auction</h4>
 <p>Participants per team: 2</p>
 <button class="info-btn" onclick="toggleRules(this)">More Info</button>
-<div class="rules"><p><br>Rules:</p>
+<div class="rules"><p><br><b>Rules:</b></p>
 <ul>
 <li>Prior knowledge of IPL from 2008-2025</li>
 <li>Decision of judges is final.</li>
 </ul>
 </div>
 </div>
-<br><br>
 </section>
 
 <!-- ---------- Schedule Section ---------- -->
 <section id="schedule">
-    <h2>Event Schedule</h2>
+
+    <h2 align="center">Event Schedule</h2>
     <div class="schedule">
         <p class="schedule-item"><img src="https://icons.iconarchive.com/icons/uiconstock/e-commerce/32/clock-icon.png" width="20" height="20" alt="clock icon">
 09:00 AM : On-spot Registration</p>
@@ -738,6 +613,7 @@ object{
 5:00 PM : Valedictory</p>
     </div>
 </section>
+
 
 <!-- ---------- Contact Section ---------- -->
 <section id="contact">
@@ -765,10 +641,10 @@ object{
     </div>
    
 </section>
-<br><br>
-<!-- ---------- Footer ---------- -->
+
+
 <footer>
-    <p>© 2026 Department of Computer Applications</p>
+© 2026 Department of Computer Applications
 </footer>
 
 <script>
@@ -845,14 +721,3 @@ function downloadBrochure(){
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
